@@ -18,6 +18,6 @@ RUN git clone https://github.com/zone117x/node-cryptonote-pool.git pool
 
 RUN /bin/bash -c "source $NVM_DIR/nvm.sh && cd /pool && npm install -g npm@1.3.10 && npm update"
 
-RUN cp /pool/config_example.json /pool/config.js
+RUN cp /pool/config_example.json /pool/config.json
 
 RUN update-rc.d redis-server defaults
