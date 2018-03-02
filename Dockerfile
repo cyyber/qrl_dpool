@@ -14,10 +14,9 @@ ENV PATH      $NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH
 RUN /bin/bash -c "source $NVM_DIR/nvm.sh && npm install -g npm@1.3.10 && npm update"
 
 # # Get pool source code 
-RUN git clone https://github.com/zone117x/node-cryptonote-pool.git pool
+RUN git clone https://github.com/cyyber/node-cryptonote-pool.git pool
+ADD config.json /pool/
 
 RUN /bin/bash -c "source $NVM_DIR/nvm.sh && cd /pool && npm install -g npm@1.3.10 && npm update"
-
-RUN cp /pool/config_example.json /pool/config.json
 
 RUN update-rc.d redis-server defaults
